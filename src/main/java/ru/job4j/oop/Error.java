@@ -13,6 +13,7 @@ public class Error {
         this.status = status;
         this.message = message;
     }
+
     public void printInfo() {
         System.out.println("Имеется ошибка: " + active);
         System.out.println("Количество ошибок:  " + status);
@@ -21,8 +22,8 @@ public class Error {
 
     public static void main(String[] args) {
         Error error = new Error();
-        Error bug = new Error(true, 5, " Некорректно загружен файл, повторите попытку.");
-        Error empty = new Error(false, 0," Ошибка не найдена");
+        Error bug = new Error(true, 5, "Некорректно загружен файл, повторите попытку.");
+        Error empty = new Error(false, 0, " Ошибка не найдена");
         error.printInfo();
         bug.printInfo();
         empty.printInfo();

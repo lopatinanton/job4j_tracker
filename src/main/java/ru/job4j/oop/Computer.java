@@ -6,7 +6,6 @@ public class Computer {
     private String cpu;
 
     public Computer() {
-
     }
 
     public Computer(boolean multiMonitor, int ssd, String cpu) {
@@ -14,6 +13,7 @@ public class Computer {
         this.ssd = ssd;
         this.cpu = cpu;
     }
+
     public void printInfo() {
         System.out.println("Много мониторов: " + multiMonitor);
         System.out.println("SSD: " + ssd + " GB");
@@ -23,9 +23,7 @@ public class Computer {
     public static void main(String[] args) {
         Computer computer = new Computer(true, 500, "Intel Core I7-10700K");
         Computer third = new Computer();
-computer.printInfo();
-third.printInfo();
-
-
+    computer.printInfo();
+    third.printInfo();
     }
 }
