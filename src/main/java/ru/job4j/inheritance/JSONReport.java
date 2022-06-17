@@ -7,4 +7,9 @@ public class JSONReport extends TextReport {
         return "{" + System.lineSeparator() + "\t\"name\"" + " : \"" + name + "\"" + "," + System.lineSeparator()
                 + "\t\"body\"" + " : \"" + body + "\"" + System.lineSeparator() + "}";
     }
+
+    @Override
+    public String genreate(String name, String body) {
+        return null;
+    }
 }
