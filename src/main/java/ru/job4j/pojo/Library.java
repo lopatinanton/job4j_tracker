@@ -25,7 +25,7 @@ public class Library {
         System.out.println();
         System.out.println("Output of a book with the name Clean code");
         for (Book bk : books) {
-            if (bk.getCount() == four.getCount()) {
+            if (bk.equals(four)) {
                 System.out.println(bk.getName() + " - " + bk.getCount() + " pages");
             }
         }
