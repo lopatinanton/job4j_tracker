@@ -31,20 +31,16 @@ public class Tracker {
     }
 
     public Item[] findByName(String key) {
-        Item[] item = new Item[items.length];
-        int size = 0;
-        for (int i = 0; i < item.length; i++) {
+        Item[] item = new Item[size];
+        int count = 0;
+        for (int i = 0; i < size; i++) {
             Item names = items[i];
-            if (names != null && names.getName().equals(key)) {
-                item[size] = names;
-                size++;
+            if (names.getName().equals(key)) {
+                item[count] = names;
+                count++;
             }
         }
-        item = Arrays.copyOf(item, size);
-        for (Item value : item) {
-            System.out.println(value);
-        }
-        return item;
+        return Arrays.copyOf(items, count);
     }
 
     public Item findById(int id) {
@@ -54,8 +50,8 @@ public class Tracker {
             if (item.getId() == id) {
                 rsl = item;
                 break;
+                }
             }
-        }
-        return rsl;
+            return rsl;
     }
 }
