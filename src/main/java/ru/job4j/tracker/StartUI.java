@@ -23,13 +23,13 @@ public class StartUI {
 
     public static void editItem(Input input, Tracker tracker) {
         System.out.println("=== Edit item ===");
-        String name = input.askStr("Enter name: ");
         int id = input.askInt("Enter id: ");
+        String name = input.askStr("Enter name: ");
         Item item = new Item(name);
         if (tracker.replace(id, item)) {
             System.out.println("Заявка изменена успешно.");
         } else {
-            System.out.println("Ошибка замены заявки");
+            System.out.println("Ошибка замены заявки.");
         }
     }
 
