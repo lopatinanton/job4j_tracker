@@ -40,7 +40,7 @@ public class StartUITest {
             Tracker tracker = new Tracker();
             Item two = tracker.add(new Item("test2"));
             Input in = new StubInput(
-                    new String[] {"0", String.valueOf(two.getId()), "1"}
+                    new String[] {"0", "1"}
             );
             UserAction[] actions = new UserAction[]{
                     new ShowAllAction(out),
@@ -68,7 +68,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item three = tracker.add(new Item("test3"));
         Input in = new StubInput(
-                new String[] {"0", String.valueOf(three.getName()), "1"}
+                new String[] {"0", three.getName(), "1"}
         );
         UserAction[] actions = new UserAction[]{
                 new FindByNameAction(out),
