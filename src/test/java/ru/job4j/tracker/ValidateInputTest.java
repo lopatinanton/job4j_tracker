@@ -30,11 +30,15 @@ public class ValidateInputTest {
     public void whenMultipleCorrectInput() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"5", "5", "5"}
+                new String[] {"5", "6", "7"}
         );
         ValidateInput input = new ValidateInput(out, in);
         int selected = input.askInt("Enter menu:");
         assertThat(selected).isEqualTo(5);
+        selected = input.askInt("Enter menu:");
+        assertThat(selected).isEqualTo(6);
+        selected = input.askInt("Enter menu:");
+        assertThat(selected).isEqualTo(7);
     }
 
     @Test
