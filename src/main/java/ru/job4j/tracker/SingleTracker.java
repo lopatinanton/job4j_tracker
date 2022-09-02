@@ -1,18 +1,16 @@
 package ru.job4j.tracker;
 
-import java.util.Arrays;
-
-public class SingleTracker {
+public final class SingleTracker {
     private Tracker tracker = new Tracker();
 
-    private static ru.job4j.tracker.SingleTracker instance = null;
+    private static SingleTracker instance = null;
 
     private SingleTracker() {
     }
 
-    public static ru.job4j.tracker.SingleTracker getInstance() {
+    public static SingleTracker getInstance() {
         if (instance == null) {
-            instance = new ru.job4j.tracker.SingleTracker();
+            instance = new SingleTracker();
         }
         return instance;
     }
