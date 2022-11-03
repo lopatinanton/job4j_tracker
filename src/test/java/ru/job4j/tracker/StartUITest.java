@@ -1,11 +1,11 @@
 package ru.job4j.tracker;
 
-
 import org.junit.Test;
-import ru.job4j.tracker.*;
 
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class StartUITest {
     @Test
@@ -15,19 +15,20 @@ public class StartUITest {
                 new String[] {"2", "0"}
         );
         Tracker tracker = new Tracker();
-        UserAction[] actions = new UserAction[]{
+        List<UserAction> actions = new ArrayList<>(List.of(
                 new ExitAction(out)
-        };
+        )
+        );
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
-        assertThat(out.toString(), is(
+        assertThat(out.toString()).isEqualTo(
                         "Menu:" + ln
                                 + "0. Exit Program" + ln
                                 + "Wrong input, you can select: 0 .. 0" + ln
                                 + "Menu:" + ln
                                 + "0. Exit Program" + ln
                                 + "=== Exit Program ===" + ln
-                )
+
         );
     }
 
@@ -40,13 +41,14 @@ public class StartUITest {
         Input in = new StubInput(
                 new String[] {"0", String.valueOf(one.getId()), replaceName, "1"}
         );
-        UserAction[] actions = new UserAction[]{
+        List<UserAction> actions = new ArrayList<>(List.of(
                 new EditAction(out),
                 new ExitAction(out)
-        };
+        )
+        );
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
-        assertThat(out.toString(), is(
+        assertThat(out.toString()).isEqualTo(
                 "Menu:" + ln
                         + "0. Edit item" + ln
                         + "1. Exit Program" + ln
@@ -56,7 +58,7 @@ public class StartUITest {
                         + "0. Edit item" + ln
                         + "1. Exit Program" + ln
                         + "=== Exit Program ===" + ln
-        ));
+        );
     }
 
     @Test
@@ -67,13 +69,14 @@ public class StartUITest {
             Input in = new StubInput(
                     new String[] {"0", "1"}
             );
-            UserAction[] actions = new UserAction[]{
+        List<UserAction> actions = new ArrayList<>(List.of(
                     new ShowAllAction(out),
                     new ExitAction(out)
-            };
+        )
+        );
             new StartUI(out).init(in, tracker, actions);
             String ln = System.lineSeparator();
-            assertThat(out.toString(), is(
+            assertThat(out.toString()).isEqualTo(
                     "Menu:" + ln
                             + "0. Show all Item" + ln
                             + "1. Exit Program" + ln
@@ -83,7 +86,7 @@ public class StartUITest {
                             + "0. Show all Item" + ln
                             + "1. Exit Program" + ln
                             + "=== Exit Program ===" + ln
-            ));
+            );
 
     }
 
@@ -95,13 +98,14 @@ public class StartUITest {
         Input in = new StubInput(
                 new String[] {"0", three.getName(), "1"}
         );
-        UserAction[] actions = new UserAction[]{
+        List<UserAction> actions = new ArrayList<>(List.of(
                 new FindByNameAction(out),
                 new ExitAction(out)
-        };
+        )
+        );
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
-        assertThat(out.toString(), is(
+        assertThat(out.toString()).isEqualTo(
                 "Menu:" + ln
                         + "0. Find Item by name" + ln
                         + "1. Exit Program" + ln
@@ -111,7 +115,7 @@ public class StartUITest {
                         + "0. Find Item by name" + ln
                         + "1. Exit Program" + ln
                         + "=== Exit Program ===" + ln
-        ));
+        );
 
     }
 
@@ -123,13 +127,12 @@ public class StartUITest {
         Input in = new StubInput(
                 new String[] {"0", String.valueOf(four.getId()), "1"}
         );
-        UserAction[] actions = new UserAction[]{
-                new FindByIdAction(out),
-                new ExitAction(out)
-        };
+                List<UserAction> actions = new ArrayList<>();
+                actions.add(new FindByIdAction(out));
+                actions.add(new ExitAction(out));
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
-        assertThat(out.toString(), is(
+        assertThat(out.toString()).isEqualTo(
                 "Menu:" + ln
                         + "0. Find Item by Id" + ln
                         + "1. Exit Program" + ln
@@ -139,7 +142,6 @@ public class StartUITest {
                         + "0. Find Item by Id" + ln
                         + "1. Exit Program" + ln
                         + "=== Exit Program ===" + ln
-        ));
-
+        );
     }
 }
