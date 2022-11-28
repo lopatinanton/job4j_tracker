@@ -127,9 +127,12 @@ public class StartUITest {
         Input in = new StubInput(
                 new String[] {"0", String.valueOf(four.getId()), "1"}
         );
-                List<UserAction> actions = new ArrayList<>();
-                actions.add(new FindByIdAction(out));
-                actions.add(new ExitAction(out));
+                List<UserAction> actions = new ArrayList<>(List.of(
+                        new FindByIdAction(out),
+                        new ExitAction(out)
+                )
+                );
+
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
         assertThat(out.toString()).isEqualTo(
