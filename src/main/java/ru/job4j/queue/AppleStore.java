@@ -16,20 +16,13 @@ public class AppleStore {
         for (int i = 0; i < count - 1; i++) {
             queue.poll();
         }
-
-        if (queue.peek() != null) {
-            return queue.peek().name();
-        }
-        return null;
+        return queue.peek() != null ? queue.peek().name() : null;
     }
 
     public String getFirstUpsetCustomer() {
         for (int i = 0; i < count; i++) {
             queue.poll();
         }
-        if (queue.peek() != null) {
-            return queue.peek().name();
-        }
-        return null;
+        return queue.peek() != null ? queue.peek().name() : null;
     }
 }
