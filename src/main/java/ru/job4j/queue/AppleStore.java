@@ -4,7 +4,7 @@ import java.util.Queue;
 
 public class AppleStore {
     private final Queue<Customer> queue;
-    private  final int count;
+    private final int count;
 
     public AppleStore(Queue<Customer> queue, int count) {
 
@@ -13,16 +13,18 @@ public class AppleStore {
     }
 
     public String getLastHappyCustomer() {
-        for (int i = 0; i < count - 1; i++) {
-            queue.poll();
+        Customer c = null;
+        for (int i = 0; i < count; i++) {
+            c = queue.poll();
         }
-        return queue.peek() != null ? queue.peek().name() : null;
+        return c != null ? c.name() : null;
     }
 
     public String getFirstUpsetCustomer() {
-        for (int i = 0; i < count; i++) {
-            queue.poll();
+        Customer customer = null;
+        for (int i = 0; i <= count; i++) {
+            customer = queue.poll();
         }
-        return queue.peek() != null ? queue.peek().name() : null;
+        return customer != null ? customer.name() : null;
     }
 }
