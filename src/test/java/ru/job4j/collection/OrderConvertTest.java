@@ -9,6 +9,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class OrderConvertTest {
+
     @Test
     public void whenSingleOrder() {
         List<Order> orders = new ArrayList<>();
