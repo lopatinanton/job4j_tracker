@@ -11,7 +11,7 @@ public class PassportOffice {
         boolean rsl = false;
         if (!citizens.containsKey(citizen.getPassport())) {
             citizens.put(citizen.getPassport(), citizen);
-            return rsl;
+            return true;
         }
         return rsl;
     }
