@@ -6,6 +6,7 @@ public class Order {
     private Status status;
 
     public Order(int number, String car, Status status) {
+
         this.number = number;
         this.car = car;
         this.status = status;
