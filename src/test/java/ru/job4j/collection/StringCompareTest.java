@@ -56,16 +56,11 @@ public class StringCompareTest {
 
     @Test
     public void whenEmptyStringComparedToNonEmptyString() {
-        // Arrange
         StringCompare compare = new StringCompare();
-
-        // Act
         int result = compare.compare(
                 "",
                 "Ivanov"
         );
-
-        // Assert
         assertThat(result).isLessThan(0);
     }
 }
